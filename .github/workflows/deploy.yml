@@ -34,7 +34,7 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build --push --tag $DOCKER_USERNAME/devopps_praksa .
-        docker tag $DOCKER_USERNAME/devopps_praksa $DOCKER_USERNAME/devopps_praksa
-        docker push $DOCKER_USERNAME/devopps_praksa
-        docker push $DOCKER_USERNAME/devopps_praksa
+        docker buildx build --push --tag $DOCKER_USERNAME/devopps_praksa:latest .
+        docker tag $DOCKER_USERNAME/devopps_praksa:latest $DOCKER_USERNAME/devopps_praksa:$GITHUB_SHA
+        docker push $DOCKER_USERNAME/devopps_praksa:$GITHUB_SHA
+        docker push $DOCKER_USERNAME/devopps_praksa:latest
