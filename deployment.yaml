@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: praksa-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: praksa-api
+  template:
+    metadata:
+      labels:
+        app: praksa-api
+    spec:
+      containers:
+        - name: praksa-api
+          image: sveotac/devopps_praksa:latest
+          ports:
+            - containerPort: 8080
