@@ -1,4 +1,4 @@
-name: CI/CD for API Deployment #upodated
+name: CI/CD for API Deployment
 
 on:
   push:
@@ -35,6 +35,6 @@ jobs:
     - name: Build and push Docker image
       run: |
         docker buildx build --push --tag $DOCKER_USERNAME/devopps_praksa:latest .
-        docker tag $DOCKER_USERNAME/devopps_praksa:latest $DOCKER_USERNAME/devopps_praksa:$GITHUB_SHA
+        docker tag $DOCKER_USERNAME/devopps_praksa $DOCKER_USERNAME/devopps_praksa:$GITHUB_SHA
         docker push $DOCKER_USERNAME/devopps_praksa:$GITHUB_SHA
-        docker push $DOCKER_USERNAME/devopps_praksa:latest
+        docker push $DOCKER_USERNAME/devopps_praksa
